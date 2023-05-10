@@ -1,0 +1,1 @@
+# aumentamos el parámteros eps. Es decir agregamos mas regularización L2
