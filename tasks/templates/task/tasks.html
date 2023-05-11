@@ -1,0 +1,33 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1 class="p-3 m-3 text-center">Experimental absortion curve</h1>
+
+<div class="text-center">
+    <a href="{% url 'create_task' %}" class="btn btn-primary">Upload Curve</a>
+</div>
+<div class="row">
+
+{% for task in tasks %}
+    <div class="col-xs-6">
+      <div class="card m-3" >
+      
+          <div class="card-header" style="font-weight: bold;"> 
+            {{task.title}} <p style="font-size: x-small">      at  {{task.created }}</p>
+          </div> 
+          <div class="card-body ">{{task.description}}</div>
+          <div class="card-footer" style="display: flex;">
+            <a href="{% url 'task_detail' task.id %}" class="btn btn-secondary m-1">Go</a>
+            <form action="{% url 'delete_task' task.id %}" method="POST">
+              {% csrf_token %}
+              <button  class="btn btn-danger m-1">
+                Delete
+              </button>
+            </form>
+          </div>
+      </div>  
+    </div>
+{% endfor %}
+
+</div>
+
+{% endblock %}

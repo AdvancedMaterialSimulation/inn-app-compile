@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <div class="container">
+    <div class="row">
+        <div class="card bg-white pd-2">
+          <h1 class="card-title text-center">{{task.title}} </h1>
+          <p class="card-subtitle text-center" style="font-size: x-small">      at  {{task.created }}</p>
+          
+          {{error}}
+          <p class ="card-text p-3 m-3" >{{task.description}}</p>
+          <div class="card-footer m-3">
+            <div class="container">
+              <div class="row text-center">
+                <form action="{% url 'delete_task' task.id %}" method="POST" class="col-1" >
+                  {% csrf_token %}
+                  <button  class="btn btn-danger p-2 m-3" style="width: 100px">
+                    Delete
+                  </button>
+                </form>
+        
+                <form action="{% url 'download' task.id %}" method="GET"  class="col-4">
+                  {% csrf_token %}
+                  <button  class="btn btn-primary p-2 m-3" style="width: 100px">
+                    Download
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <!-- {{params.chart  | safe}} -->
+        <hr>
+        {{params.chart1 | safe}}
+        {{params.chart2 | safe}}
+    </div>
+  </div>
+   
+
+{% endblock %}
