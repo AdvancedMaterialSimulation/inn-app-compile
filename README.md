@@ -12,6 +12,8 @@ Now you need open a conda console and run:
 conda create -n ams-dj python=3.9.16
 conda activate ams-dj
 pip install -r requirements.txt
+python manage.py makemigrations
+python manage.py migrate
 ```
 This will create a new conda environment and install all dependencies.
 
