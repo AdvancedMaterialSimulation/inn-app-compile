@@ -1,6 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
-    <a class="navbar-brand" href="/">AMS
+    {% load static %}
+    <a class="navbar-brand" href="/">
+      <img width="10%" src="{% static 'icon-ams.png' %}" alt="home" class="img-fluid" /> AMS
     {% if user.is_authenticated %}
       <small style="color: darkgrey;">: {{user}}</small>
     {% endif %}</a>

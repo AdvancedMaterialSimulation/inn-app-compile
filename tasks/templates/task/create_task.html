@@ -2,14 +2,31 @@
 
 {% block content %}
 
+{% if error %}
+<div class="text-center m-3">
+  <div class="alert alert-danger" role="alert">
+    Error creating task
+  </div>
+</div>
+{% endif %}
 
-{{error}}
 <div class="container">
   <div class="row">
     <div class="col-md-8 offset-md-2">
       <hr>
       <h1 class="text-center">Create task</h1>
       <hr />
+      <p >You can upload a plain text file with the following format:</p>
+      <pre class="text-center p-3 m-3 card bg-dark text-white">
+Frequency[Hz]	Experimental
+81.250	0.24965
+82.812	0.26412
+84.375	0.28639
+85.937	0.29087
+87.500	0.28303
+...
+      </pre>
+      <hr>
     <form action="" method="POST" enctype="multipart/form-data">
       {% csrf_token %}
       <label for="title">Title</label>
@@ -23,11 +40,12 @@
 
     <!-- upload file txt -->
       <br>
-      <button>Save</button>
+      <button class="btn btn-primary">Save</button>
     </form>
   </div>
 </div>
 
-
-
+<p class="m-5"> </p>
+<p class="m-5"> </p>
+<hr
 {% endblock %}

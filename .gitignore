@@ -1,8 +1,5 @@
 venv
 __pycache__
 db.sqlite3
-staticfiles
-src/inn/models/2023_05_05_inn_0001/model_state_dict.pt
-src/inn/models/2023_05_05_inn_0001/parameters.pkl
-src/inn/models/2023_05_05_inn_0002/model_state_dict.pt
-src/inn/models/2023_05_05_inn_0002/parameters.pkl
+curves/*
+staticfiles/*

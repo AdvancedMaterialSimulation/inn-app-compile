@@ -2,10 +2,10 @@
 
 {% block content %}
 
-  <div class="container">
+  <div class="container m-5">
     <div class="row">
-        <div class="card bg-white pd-2">
-          <h1 class="card-title text-center">{{task.title}} </h1>
+        <div class="card bg-white pd-5">
+          <h1 class="card-title text-center p-3">Name: <code>{{task.title}} </code></h1>
           <p class="card-subtitle text-center" style="font-size: x-small">      at  {{task.created }}</p>
           
           {{error}}
@@ -13,19 +13,33 @@
           <div class="card-footer m-3">
             <div class="container">
               <div class="row text-center">
+
+                <!-- Delete -->
                 <form action="{% url 'delete_task' task.id %}" method="POST" class="col-1" >
                   {% csrf_token %}
                   <button  class="btn btn-danger p-2 m-3" style="width: 100px">
                     Delete
                   </button>
                 </form>
-        
+                <!-- Download -->
+                {% if task.done %}
                 <form action="{% url 'download' task.id %}" method="GET"  class="col-4">
                   {% csrf_token %}
                   <button  class="btn btn-primary p-2 m-3" style="width: 100px">
                     Download
                   </button>
                 </form>
+                {% endif %}
+                <!-- Run -->
+                {% if not task.done %}
+                <form action="{% url 'inn_run' task.id %}" method="GET"  class="col-4">
+                  {% csrf_token %}
+                  <button  class="btn btn-primary p-2 m-3" style="width: 100px">
+                    Run
+                  </button>
+                </form>
+                {% endif %}
+
               </div>
             </div>
           </div>
@@ -35,8 +49,13 @@
 
         <!-- {{params.chart  | safe}} -->
         <hr>
-        {{params.chart1 | safe}}
-        {{params.chart2 | safe}}
+        {{ params.exp_curve | safe}}
+        {% if task.done %}
+      </hr>
+      <h1>Results</h1>
+          {{params.chart1 | safe}}
+          {{params.chart2 | safe}}
+        {% endif %}
     </div>
   </div>
    

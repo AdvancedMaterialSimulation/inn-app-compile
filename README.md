@@ -11,6 +11,9 @@ Now you need open a conda console and run:
 ```bash
 conda create -n ams-dj python=3.9.16
 pip install -r requirements.txt
+python manage.py makemigrations
+python manage.py migrate
+python manage.py collectstatic
 ```
 This will create a new conda environment and install all dependencies.
 
