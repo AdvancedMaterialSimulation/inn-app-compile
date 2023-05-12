@@ -20,6 +20,7 @@ conda activate ams-dj
 ```
 This will create a new conda environment and activate it. Now you need to install the dependencies:
 ```bash
+```
 pip install -r requirements.txt
 python manage.py makemigrations
 python manage.py migrate

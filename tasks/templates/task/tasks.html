@@ -21,6 +21,8 @@
             {% endif %}
             <p style="font-size: x-small">      at  {{task.created }}</p>
           </div> 
+
+          
           <div class="card-body ">{{task.description}}</div>
           <div class="card-footer" style="display: flex;">
             <a href="{% url 'task_detail' task.id %}" class="btn btn-secondary m-1">View</a>
