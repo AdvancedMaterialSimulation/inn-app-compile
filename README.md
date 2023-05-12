@@ -6,18 +6,15 @@
 To run this project you need to install:
 - [anaconda](https://www.anaconda.com/download/)
 
-## 2. Install
+## Install
 Now you need open a conda console and run:
 ```bash
 conda create -n ams-dj python=3.9.16
-conda activate ams-dj
 pip install -r requirements.txt
-python manage.py makemigrations
-python manage.py migrate
 ```
 This will create a new conda environment and install all dependencies.
 
-## 3. Run the App
+## Run the App
 
 You need position yourself in the app folder, the one that contains the file `manage.py`. To run the app you need to activate the conda environment and run the server:
 ```bash
