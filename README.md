@@ -6,10 +6,21 @@
 To run this project you need to install:
 - [anaconda](https://www.anaconda.com/download/)
 
+You must be able to run `conda` and `pip` from the command line. If not have pip installed, you can install it with:
+```bash
+conda install pip
+```
+
+
 ## Install
 Now you need open a conda console and run:
 ```bash
 conda create -n ams-dj python=3.9.16
+conda activate ams-dj
+```
+This will create a new conda environment and activate it. Now you need to install the dependencies:
+```bash
+```
 pip install -r requirements.txt
 python manage.py makemigrations
 python manage.py migrate
